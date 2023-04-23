@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To_Do_List</title>
+  <style>
+    body {
+      justify-content: center;
+    }
+    ul {
+      padding: 0;
+    }
+    input[type="checkbox"]:checked + span {
+      text-decoration: line-through;
+      color: rgb(126, 126, 126);
+    }
+    #main {
+      text-align: center;
+      width: 250px;
+      margin: auto;
+      border: 1px solid black;
+    }
+    #content {
+      margin: auto;
+      width: 200px;
+      height: 100px;
+    }
+    ul{
+      text-align: left;
+    }
+    li{
+      list-style-type: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="main">
+    <h2>To Do List</h2>
+    <div>
+    <input id="inputCon" type="text" /><button>add</button> 
+    </div>
+    <div id="content">
+      <ul>
+      </ul>  
+    </div>
+    <button id="delete">delete</button>
+  </div>
+  <script>
+    const $check = document.querySelector('#check');
+    <!-- const $content = document.querySelector('#content'); -->
+    const $input = document.querySelector('button');
+    const $inputCon = document.querySelector('#inputCon')
+    const $delete = document.querySelector('#delete');
+
+    let ul = document.querySelector('ul');
+    let content;
+    let id = 0;
+
+    $delete.addEventListener('click', (e) => {
+      ul.innerHTML = '';
+    })
+
+    $input.addEventListener('click', (e) => {
+      if (id < 10){
+        write($inputCon.value);
+        $inputCon.value = '';
+        id++;
+      } else {
+
+      }
+    })
+
+    const write = (value) => {
+      let li = document.createElement('li');
+      li.innerHTML = `<input type="checkbox"><span>${value}</span>` 
+      ul.appendChild(li);
+    }
+
+  </script>
+</body>
+</html>
