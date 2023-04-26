@@ -18,14 +18,14 @@
     }
     #main {
       text-align: center;
-      width: 250px;
+      width: 300px;
       margin: auto;
       border: 1px solid black;
     }
     #content {
       margin: auto;
-      width: 200px;
-      height: 100px;
+      width: 250px;
+      height: 250px;
     }
     ul{
       text-align: left;
@@ -64,6 +64,7 @@
     })
 
     $input.addEventListener('click', (e) => {
+      if($inputCon.value != ''){
       if (id < 10){
         write($inputCon.value);
         $inputCon.value = '';
@@ -71,14 +72,18 @@
       } else {
         alert("저장할 수 있는 한도는 10개 입니다.");
       }
+    } else {
+      alert("내용을 입력해주세요.")
+    }
     })
+
     
     const write = (value) => {
       let li = document.createElement('li');
       li.innerHTML = `<input type="checkbox"><span>${value}</span>` 
       ul.appendChild(li);
     }
-    
+
   </script>
 </body>
 </html>
